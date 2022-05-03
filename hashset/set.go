@@ -52,3 +52,11 @@ func (s *Set[K]) Copy() *Set[K] {
 		m: s.m.Copy(),
 	}
 }
+
+func (s *Set[K]) Values() []K {
+	var values []K
+	s.Each(func(key K) {
+		values = append(values, key)
+	})
+	return values
+}
